@@ -16,10 +16,12 @@ const app = express();
 
 // ✅ Proper CORS configuration for React frontend
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "eliphas-final-8m72.vercel.app"  // ← your Vercel URL
+  ],
   credentials: true
 }));
-
 
 // ✅ Middleware
 app.use(express.json());
