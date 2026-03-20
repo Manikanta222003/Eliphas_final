@@ -18,7 +18,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "eliphas-final-8m72.vercel.app"  // ← your Vercel URL
+    "https://eliphas-final-8m72.vercel.app"  // ← added https://
   ],
   credentials: true
 }));
