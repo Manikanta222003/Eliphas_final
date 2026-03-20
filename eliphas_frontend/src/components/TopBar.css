@@ -1,0 +1,39 @@
+/* ===== TOP BAR ===== */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  height:34px;
+  background:linear-gradient(90deg,#0d2555 0%,#1a458f 50%,#0d2555 100%);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  transform:translateY(-100%);
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.top-bar.tb-visible{transform:translateY(0)}
+.top-bar::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(232,160,48,.15),transparent);
+  animation:tbShimmer 3s ease-in-out infinite;
+}
+@keyframes tbShimmer{0%,100%{opacity:0}50%{opacity:1}}
+.top-bar-inner{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);position:relative;z-index:1;
+}
+.tb-dot{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:.8}
+.tb-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  color:rgba(255,255,255,.8);text-decoration:none;
+  font-size:.6rem;letter-spacing:.2em;font-weight:500;
+  padding:.2rem .6rem;border:1px solid rgba(255,255,255,.15);border-radius:2px;
+  transition:all .3s;
+}
+.tb-link:hover{color:var(--white);border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.05)}
+.tb-link svg{width:11px;height:11px}
+.top-bar-close{
+  position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.4);font-size:.85rem;line-height:1;
+  transition:color .2s;padding:.2rem .4rem;
+}
+.top-bar-close:hover{color:rgba(255,255,255,.8)}
